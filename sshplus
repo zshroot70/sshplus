@@ -1,0 +1,152 @@
+#!/bin/bash
+fun_bar() {
+	comando[0]="$1"
+	comando[1]="$2"
+	(
+		[[ -e $HOME/fim ]] && rm $HOME/fim
+		${comando[0]} -y >/dev/null 2>&1
+		${comando[1]} -y >/dev/null 2>&1
+		touch $HOME/fim
+	) >/dev/null 2>&1 &
+	tput civis
+	echo -ne "         \033[1;33mAGUARDE \033[1;37m- \033[1;33m["
+	while true; do
+		for ((i = 0; i < 18; i++)); do
+			echo -ne "\033[1;31m#"
+			sleep 0.1s
+		done
+		[[ -e $HOME/fim ]] && rm $HOME/fim && break
+		echo -e "\033[1;33m]"
+		sleep 1s
+		tput cuu1
+		tput dl1
+		echo -ne "         \033[1;33mAGUARDE \033[1;37m- \033[1;33m["
+	done
+	echo -e "\033[1;33m]\033[1;37m -\033[1;32m OK !\033[1;37m"
+	tput cnorm
+}
+clear
+echo -e "\033[1;31mâ•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•\033[0m"
+echo -e "\E[44;1;37m                    SSHPLUS PRO                     \E[0m"
+echo -e "\033[1;31mâ•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•\033[0m"
+echo ""
+echo ""
+echo -ne "\033[1;36mINSTALAR? [N/S]: \033[1;37m"; read x
+[[ $x = @(n|N) ]] && exit
+fun_install () {
+apt install curl -y
+apt install language-pack-en -y
+curl -4 ifconfig.co > /etc/IP
+apt install bc -y 
+apt install nethogs -y
+apt install screen -y 
+apt install nano -y 
+apt install unzip -y 
+apt install lsof -y 
+apt install netstat -y 
+apt install net-tools -y 
+apt install dos2unix -y 
+apt install nload -y 
+apt install jq -y 
+apt install figlet -y 
+apt install python3 -y 
+apt install python -y 
+apt install python-pip -y 
+apt install python3-pip -y
+pip install msvcrt
+pip3 install msvcrt
+pip3 install asn1crypto attrs Automat blinker click colorama configobj constantly distro-info httplib2 hyperlink incremental Jinja2 jsonpatch jsonpointer jsonschema keyring keyrings.alt MarkupSafe oauthlib PAM pexpect pip pyasn1 pyasn1-modules pycrypto PyJWT pyserial pyxdg PyYAML requests requests-unixsocket SecretStorage service-identity setuptools six sos ssh-import-id Twisted urllib3 wheel zope.interface
+apt purge sslh -y
+if ! grep -q "::ffff:a498:3873 sshplus.xyz" /etc/hosts; then
+    echo "::ffff:a498:3873 sshplus.xyz" >> /etc/hosts
+fi
+if ! grep -q "::ffff:a498:3873 https://sshplus.xyz" /etc/hosts; then
+    echo "::ffff:a498:3873 https://sshplus.xyz" >> /etc/hosts
+fi
+if ! grep -q "164.152.56.115 https://sshplus.xyz" /etc/hosts; then
+    echo "164.152.56.115 https://sshplus.xyz" >> /etc/hosts
+fi
+if ! grep -q "164.152.56.115 sshplus.xyz" /etc/hosts; then
+    echo "164.152.56.115 sshplus.xyz" >> /etc/hosts
+fi
+if ! grep -q "net.ipv6.conf.all.disable_ipv6 = 1" /etc/sysctl.conf; then
+echo "net.ipv6.conf.all.disable_ipv6 = 1" >> /etc/sysctl.conf
+fi
+if ! grep -q "net.ipv6.conf.default.disable_ipv6 = 1" /etc/sysctl.conf; then
+echo "net.ipv6.conf.default.disable_ipv6 = 1" >> /etc/sysctl.conf
+fi
+if ! grep -q "net.ipv6.conf.lo.disable_ipv6 = 1" /etc/sysctl.conf; then
+echo "net.ipv6.conf.lo.disable_ipv6 = 1" >> /etc/sysctl.conf
+fi
+if ! grep -q "::ffff:a498:3873 sshplus.xyz" /etc/cloud/templates/hosts.debian.tmpl; then
+echo "::ffff:a498:3873 sshplus.xyz" >> /etc/cloud/templates/hosts.debian.tmpl
+fi
+if ! grep -q "::ffff:a498:3873 https://sshplus.xyz" /etc/cloud/templates/hosts.debian.tmpl; then
+echo "::ffff:a498:3873 https://sshplus.xyz" >> /etc/cloud/templates/hosts.debian.tmpl
+fi
+if ! grep -q "164.152.56.115 https://sshplus.xyz" /etc/cloud/templates/hosts.debian.tmpl; then
+echo "164.152.56.115 https://sshplus.xyz" >> /etc/cloud/templates/hosts.debian.tmpl
+fi
+if ! grep -q  "164.152.56.115 sshplus.xyz" /etc/cloud/templates/hosts.debian.tmpl; then
+echo "164.152.56.115 sshplus.xyz" >> /etc/cloud/templates/hosts.debian.tmpl
+fi
+sysctl -p
+if [ ! -d "/etc/SSHPlus" ];
+then
+mkdir -p /etc/SSHPlus
+fi
+if [ ! -d "/etc/SSHPlus/bot-telegram" ];
+then
+mkdir -p /etc/SSHPlus/bot-telegram
+fi
+if [ ! -d "/etc/SSHPlus/senha" ];
+then
+mkdir -p /etc/SSHPlus/senha
+fi
+if [ ! -d "/etc/SSHPlus/userteste" ];
+then
+mkdir -p /etc/SSHPlus/userteste
+fi
+if [ ! -d "/opt/sshplus" ];
+then
+mkdir -p /opt/sshplus
+fi
+touch /etc/autostart
+chmod +x /etc/autostart
+cd /opt/sshplus
+wget --no-check-certificate -q https://github.com/zshroot70/sshplus/raw/main/sshplus.zip
+unzip -o sshplus.zip
+rm sshplus.zip
+mv proxy.py /etc/SSHPlus
+mv wsproxy.py /etc/SSHPlus
+mv open.py /etc/SSHPlus
+echo "Penguin-Cracked-V1" > licenca.txt
+chmod 777 -R /opt/sshplus/*
+echo "export LANG=en_US.UTF-8" >> /bin/menu
+echo "export LC_ALL=en_US.UTF-8" >> /bin/menu
+echo "/opt/sshplus/sshplus" >> /bin/menu
+chmod +x /bin/menu
+cd
+cd
+cd
+cd
+rm sshplus
+chmod +x /etc/autostart
+(crontab -l 2>/dev/null; echo "@reboot /etc/autostart") | crontab -
+(crontab -l 2>/dev/null; echo "* * * * * /etc/autostart") | crontab -
+(crontab -l 2>/dev/null; echo "0 */6 * * * /opt/sshplus/check_expired") | crontab -
+}
+clear
+echo -e "\033[1;31mâ•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•\033[0m"
+echo -e "\E[44;1;37m                    SSHPLUS PRO                     \E[0m"
+echo -e "\033[1;31mâ•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•\033[0m"
+echo ""
+echo -e "\033[1;33m[\033[1;31m!\033[1;33m] \033[1;32m     INSTALANDO SCRIPT \033[1;33m[\033[1;31m!\033[1;33m] \033[0m"
+echo ""
+fun_bar 'fun_install'
+clear
+echo -e "\033[1;31mâ•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•\033[0m"
+echo -e "\E[44;1;37m                   DIGITE: menu                     \E[0m"
+echo -e "\033[1;31mâ•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•\033[0m"
+echo ""
+echo ""
